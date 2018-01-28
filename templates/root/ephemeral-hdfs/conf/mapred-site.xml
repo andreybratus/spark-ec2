@@ -31,4 +31,10 @@
     </description>
   </property>
 
+  <property>
+    <name>mapreduce.application.classpath</name>
+    <value>$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/*,$HADOOP_MAPRED_HOME/share/hadoop/mapreduce/lib/*,$HADOOP_MAPRED_HOME/share/hadoop/tools/lib/*</value>
+    <description>Add tools lib to application classpath for aws</description>
+  </property>
+
 </configuration>
