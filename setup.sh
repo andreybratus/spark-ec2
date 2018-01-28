@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo yum install -y -q pssh
+sudo yum install -y -q pssh java-1.8.0-openjdk-devel
+sudo yum --enablerepo='*-debug*' install -q -y java-1.8.0-openjdk-debuginfo.x86_64
 
 # usage: echo_time_diff name start_time end_time
 echo_time_diff () {

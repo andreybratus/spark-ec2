@@ -1,6 +1,8 @@
 #!/bin/bash
 
+USER=root
 BIN_FOLDER="/root/spark/sbin"
+EPHEMERAL_HDFS=/root/ephemeral-hdfs
 
 if [[ "0.7.3 0.8.0 0.8.1" =~ $SPARK_VERSION ]]; then
   BIN_FOLDER="/root/spark/bin"
@@ -31,3 +33,7 @@ sleep 20
 
 # Start Workers
 $BIN_FOLDER/start-slaves.sh
+
+# Start historyserver
+$EPHEMERAL_HDFS/bin/hadoop fs -mkdir -p /tmp/spark-events
+$BIN_FOLDER/start-history-server.sh

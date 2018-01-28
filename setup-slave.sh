@@ -7,6 +7,12 @@ if [[ -e /sys/kernel/mm/transparent_hugepage/enabled ]]; then
   echo never > /sys/kernel/mm/transparent_hugepage/enabled
 fi
 
+# install java8
+sudo yum install -y -q pssh java-1.8.0-openjdk-devel
+sudo yum --enablerepo='*-debug*' install -q -y java-1.8.0-openjdk-debuginfo.x86_64
+cp /root/.bash_profile /root/.bash_profile.backup
+sed 's/java-1.7.0/java-1.8.0/' /root/.bash_profile.backup > /root/.bash_profile
+
 # Make sure we are in the spark-ec2 directory
 pushd /root/spark-ec2 > /dev/null
 
@@ -43,15 +49,15 @@ if [[ $instance_type == r3* || $instance_type == i2* || $instance_type == hi1* ]
     # To turn TRIM support on, uncomment the following line.
     #echo '/dev/sdc /mnt2  ext4  defaults,noatime,discard 0 0' >> /etc/fstab
     if [[ $instance_type == "r3.8xlarge" ]]; then
-      mkfs.ext4 -E lazy_itable_init=0,lazy_journal_init=0 /dev/sdc      
+      mkfs.ext4 -E lazy_itable_init=0,lazy_journal_init=0 /dev/sdc
       mount -o $EXT4_MOUNT_OPTS /dev/sdc /mnt2
     fi
     # To turn TRIM support on, uncomment the following line.
     #echo '/dev/sdf /mnt2  ext4  defaults,noatime,discard 0 0' >> /etc/fstab
     if [[ $instance_type == "hi1.4xlarge" ]]; then
-      mkfs.ext4 -E lazy_itable_init=0,lazy_journal_init=0 /dev/sdf      
+      mkfs.ext4 -E lazy_itable_init=0,lazy_journal_init=0 /dev/sdf
       mount -o $EXT4_MOUNT_OPTS /dev/sdf /mnt2
-    fi    
+    fi
   fi
 fi
 
