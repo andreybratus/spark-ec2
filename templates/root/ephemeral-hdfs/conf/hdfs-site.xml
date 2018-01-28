@@ -58,4 +58,9 @@
     <value>3000</value>
   </property>
 
+  <property>
+    <name>dfs.secondary.http.address</name>
+    <value>null</value>
+  </property>
+
 </configuration>

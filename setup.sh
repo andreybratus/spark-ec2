@@ -1,7 +1,9 @@
 #!/bin/bash
 
-sudo yum install -y -q pssh java-1.8.0-openjdk-devel
+sudo yum install -y -q pssh java-1.8.0-openjdk-devel snappy snappy-devel
 sudo yum --enablerepo='*-debug*' install -q -y java-1.8.0-openjdk-debuginfo.x86_64
+sed 's/java-1.7.0/java-1.8.0/' /root/.bash_profile.backup > /root/.bash_profile
+sudo alternatives --set java /usr/lib/jvm/java-1.8.0/bin/java
 
 # usage: echo_time_diff name start_time end_time
 echo_time_diff () {
@@ -46,6 +48,8 @@ if [[ "x$JAVA_HOME" == "x" ]] ; then
     echo "Expected JAVA_HOME to be set in .bash_profile!"
     exit 1
 fi
+
+echo "JAVA_HOME is: $JAVA_HOME"
 
 if [[ `tty` == "not a tty" ]] ; then
     echo "Expecting a tty or pty! (use the ssh -t option)."
