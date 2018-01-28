@@ -2,6 +2,7 @@
 
 sudo yum install -y -q pssh java-1.8.0-openjdk-devel snappy snappy-devel
 sudo yum --enablerepo='*-debug*' install -q -y java-1.8.0-openjdk-debuginfo.x86_64
+cp /root/.bash_profile /root/.bash_profile.backup
 sed 's/java-1.7.0/java-1.8.0/' /root/.bash_profile.backup > /root/.bash_profile
 sudo alternatives --set java /usr/lib/jvm/java-1.8.0/bin/java
 
