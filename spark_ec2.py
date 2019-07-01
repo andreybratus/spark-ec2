@@ -110,7 +110,7 @@ DEFAULT_SPARK_VERSION = SPARK_EC2_VERSION
 DEFAULT_SPARK_GITHUB_REPO = "https://github.com/apache/spark"
 
 # Default location to get the spark-ec2 scripts (and ami-list) from
-DEFAULT_SPARK_EC2_GITHUB_REPO = "https://github.com/amplab/spark-ec2"
+DEFAULT_SPARK_EC2_GITHUB_REPO = "https://github.com/andreybratus/spark-ec2"
 DEFAULT_SPARK_EC2_BRANCH = "branch-2.0"
 
 
@@ -464,6 +464,7 @@ EC2_INSTANCE_TYPES = {
     "r3.2xlarge":  "hvm",
     "r3.4xlarge":  "hvm",
     "r3.8xlarge":  "hvm",
+    "r5.2xlarge":  "hvm",
     "t1.micro":    "pvm",
     "t2.micro":    "hvm",
     "t2.small":    "hvm",
