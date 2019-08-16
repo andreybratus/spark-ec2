@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euox
+
 sudo yum install -y -q pssh java-1.8.0-openjdk-devel snappy snappy-devel
 #sudo yum --enablerepo='*-debug*' install -q -y java-1.8.0-openjdk-debuginfo.x86_64
 cp /root/.bash_profile /root/.bash_profile.backup
