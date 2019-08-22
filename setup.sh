@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euox
+
 sudo yum install -y -q pssh java-1.8.0-openjdk-devel snappy snappy-devel
 #sudo yum --enablerepo='*-debug*' install -q -y java-1.8.0-openjdk-debuginfo.x86_64
 cp /root/.bash_profile /root/.bash_profile.backup
@@ -73,7 +75,7 @@ echo_time_diff "rsync /root/spark-ec2" "$rsync_start_time" "$rsync_end_time"
 
 echo "Running setup-slave on all cluster nodes to mount filesystems, etc..."
 setup_slave_start_time="$(date +'%s')"
-mkdir /tmp/pssh_o /tmp/pssh_e
+mkdir -p /tmp/pssh_o /tmp/pssh_e
 pssh --inline \
     --host "$MASTERS $SLAVES" \
     --user root \
