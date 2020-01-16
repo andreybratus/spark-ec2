@@ -144,8 +144,8 @@ else
   mv `ls -d spark-* | grep -v ec2` spark
 
   echo "Download hadoop-aws dependencies"
-  wget -P /root/spark/jars http://central.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.7.3/hadoop-aws-2.7.3.jar
-  wget -P /root/spark/jars http://central.maven.org/maven2/com/amazonaws/aws-java-sdk/1.7.4/aws-java-sdk-1.7.4.jar
+  wget -P /root/spark/jars https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.7.3/hadoop-aws-2.7.3.jar
+  wget -P /root/spark/jars https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk/1.7.4/aws-java-sdk-1.7.4.jar
 fi
 
 popd > /dev/null
